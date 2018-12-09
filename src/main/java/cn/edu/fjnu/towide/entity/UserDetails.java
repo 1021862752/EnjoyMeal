@@ -34,7 +34,6 @@ public class UserDetails {
   private Integer enabled;
   private Set<Authority> authorities;
   private List<Group> groups;
-  private String schoolCode;  //院校编码
   public void setCreateTime(Date createTime) {
     this.createTime = createTime;
     this.createTimeString= DateTimeUtil.getDateTimeString(createTime);

@@ -239,12 +239,12 @@ public class UserCenterBusinessService {
     public void getUserRegistrationRequestProcess() {
         UserInfoVo userInfoVo = dataCenterService.getData("userInfoVo");
 
-        User user = new User();
-        user.setUsername(userInfoVo.getUsername());
-        String newPassword = CommonUtil.passwordEncodeByBCrypt(user.getDefaultPassword());
-        user.setPassword(newPassword);
-        user.setEnabled(ENABLE);
-        boolean addResult1 = userDao.addUsers(user);
+        // User user = new User();
+        // user.setUsername(userInfoVo.getUsername());
+        // String newPassword = CommonUtil.passwordEncodeByBCrypt(user.getDefaultPassword());
+        // user.setPassword(newPassword);
+        // user.setEnabled(ENABLE);
+        // boolean addResult1 = userDao.addUsers(user);
         //将注册的用户信息写到数据库中
         UserDetails userDetails = new UserDetails();
         userDetails.setUsername(userInfoVo.getUsername());
@@ -258,7 +258,7 @@ public class UserCenterBusinessService {
 
         boolean addResult2 = userDao.addUserDetails(userDetails);
 
-        if (!addResult1 || !addResult2) {
+        if ( !addResult2) {
             ExceptionUtil.setFailureMsgAndThrow(ReasonOfFailure.USER_REGISTRATION_ERROR);
         }
 
